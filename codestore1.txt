@@ -1,0 +1,39 @@
+Private Sub CallMacros()
+Dim FileName As String
+Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
+FileName = ThisWorkbook.Path & "\Queries" & ".sql"
+Open FileName For Output As #1
+Print #1, " -- ----------------------------------------------------------------------------------------------" & vbNewLine
+int_1 = 5
+int_2 = 2
+int_3 = 2
+For i = 1 To 4
+Print #1, "INSERT INTO TABLE_NAME (id, discriminator, description, name, priority, end_date_time, start_date_time) VALUES (" & Cells(int_1, int_3) & "," & " 'OFFER_PRICE'," & " '"; Cells(int_2, int_3); "'" & ","; "'"; Cells(int_2, int_3); "'" & ", 100, " & "to_date('01.01.4712','DD.MM.YYYY'), to_date('01.01.1900','DD.MM.YYYY'));"
+int_3 = int_3 + 1
+Next i
+Print #1, "-- ----------------------------------------------------------------------------------------------"
+int_4 = 3
+int_5 = 2
+For i = 1 To 4
+Print #1, "INSERT INTO TABLE_NAME (price, amount, code, symbol,discount, recurrences, period) VALUES (" & Cells(int_1, int_5) & "," & " '" & Cells(int_4, int_5) & "'" & ", 'C', 'S', NULL, -1, (SELECT id FROM TABLE_NAME WHERE enum_value = 'MONTHLY' AND external_name = 'MONTHLY'));"
+    int_5 = int_5 + 1
+    Next i
+Print #1, "-- ----------------------------------------------------------------------------------------------"
+int_6 = 6
+int_7 = 2
+For i = 1 To 4
+int_8 = 7
+Print #1, "INSERT INTO TABLE_NAME (alteration, charge) VALUES (" & Cells(int_1, int_7) & "," & Cells(int_6, int_7); ");"
+Print #1, "INSERT INTO TABLE_NAME (alteration, charge) VALUES (" & Cells(int_1, int_7) & "," & Cells(int_8, int_7); ");"
+    int_7 = int_7 + 1
+    int_8 = int_8 + 1
+    Next i
+Close #1
+MsgBox ("YOUR QUERY GENERATION IS COMPLETED")
+Application.ScreenUpdating = True
+Application.Calculation = xlCalculationAutomatic
+End Sub
+
+
+
