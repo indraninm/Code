@@ -1,0 +1,27 @@
+Private Sub CallMacros()
+Dim FileName As String
+Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
+FileName = ThisWorkbook.Path & "\Discount" & ".txt"
+Open FileName For Output As #1
+int_1 = 10
+int_2 = 2
+string_1 = "Mobile"
+string_2 = "Service"
+int_3 = 2
+int_4 = 0
+int_6 = 1
+int_12 = 3
+For i = 1 To 4
+    Print #1, Cells(int_1, int_2) & vbTab & string_1 & vbTab & Cells(int_2, int_3) & vbTab & Cells(int_2, int_3) & vbTab & Cells(int_2, int_3) & vbTab & Cells(int_2, int_3) & vbTab & "01/01/2020" & vbTab & vbTab & "01/01/2020" & vbTab & vbTab & string_2 & vbTab & vbTab & "100" & vbTab & vbTab & vbTab & vbTab & "Months" & "24" & vbTab & vbTab & vbTab & "Section" & vbTab & Cells(int_1, int_2) & vbTab & Cells(int_1, int_2) & vbTab & Cells(int_1, int_2) & vbTab & Cells(int_1, int_2) & vbTab & " Type" & vbTab & vbTab & vbTab & vbTab & int_4 & vbTab & int_6 & vbTab & int_4 & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & "Mobile Service" & vbTab & int_6 & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab & vbTab _
+                & "No" & vbTab & vbTab & vbTab & string_1 & vbTab & "Discount" & vbTab & "6" & vbTab & "class" & vbTab & "1" & vbTab & "2" & vbTab & "4" & vbTab & "5" & vbTab & "Options" & vbTab
+    int_2 = int_2 + 1
+    int_3 = int_3 + 1
+    int_i = int_i + 1
+Next i
+Close #1
+MsgBox ("TEXT FILE IS GENERATED")
+Application.ScreenUpdating = True
+Application.Calculation = xlCalculationAutomatic
+End Sub
+
